@@ -1,2 +1,19 @@
 <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p>
+
+<h1>user showページ</h1>
+<h1>User info</h1>
+<% if @user.image.attached? %>
+  <%= image_tag @user.image, size: "300x300" %>
+<% else %>
+  <%= image_tag 'no_image', size: "300x300" %>
+<% end %>
+
+<h4>name</h4>
+<p><%= @user.name %></p>
+
+<h4>introduction</h4>
+<p><%= @user.introduction %></p>
+
+<%= link_to "編集", edit_list_path(@user.id) %>
+
