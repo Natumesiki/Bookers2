@@ -24,7 +24,7 @@
       <ul class="navbar-nav ml-auto">
     <% if user_signed_in? %>
     <li>
-      <%= link_to 'Users', user_session_path,class: 'nav-link text-light'%>
+      <%= link_to 'Users', user_path(current_user),class: 'nav-link text-light'%>
     </li>
     <li >
     <%= link_to 'Books', new_book_path, class: 'nav-link text-light'%>

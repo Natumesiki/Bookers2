@@ -1,15 +1,17 @@
 class UsersController < ApplicationController
-  # before_action :authenticate_user!, only: [:show]
+   before_action :authenticate_user!, only: [:show,:edit]
+
+ def show
+    @user = User.find(params[:id])
+    @books = @user.books
+ end
+
 
   def edit
      @user = User.find(params[:id])
      @user = User.new
   end
 
-  def show
-     @user = User.find(params[:id])
-     @book = @user.book.page(params[:page])
-  end
 
    def create
     @user = User.new(user_params)
@@ -18,11 +20,11 @@ class UsersController < ApplicationController
     redirect_to user_path
   end
 
-  def update
-   user = User.find(params[:id])
-   user.update(user_params)
-   redirect_to user_path(user.id)
- end
+ #  def update
+ #   user = User.find(params[:id])
+ #   user.update(user_params)
+ #   redirect_to user_path(user.id)
+ # end
 
   private
 

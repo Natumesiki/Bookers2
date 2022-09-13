@@ -1,10 +1,11 @@
 class BooksController < ApplicationController
+
   def index
-    # @book = Book.all.page(params[:page])
+    @book = Book.all
   end
 
   def show
-    # @book = Book.find(params[:id])
+     @book = Book.find(params[:id])
 
   end
 
