@@ -2,7 +2,7 @@
 <p>Find me in app/views/books/index.html.erb</p>
 <div class="col-md-3">
       <h2>User info</h2>
-  <%@user.each do |list|%>
+  <%@books.each do |list|%>
 <% if user.image.attached? %>
  <%= image_tag user.image, size: "200x200" %>
 <% else %>
