@@ -1,2 +1,10 @@
 <h1>Books#show</h1>
 <p>Find me in app/views/books/show.html.erb</p>
+<% @book.each do |f|%>
+<h1>タイトル</h1>
+<%= book.title %>
+
+<h2>紹介内容</h2>
+<%= book.body %>
+
+<%= link_to "編集",edit_book_path(@book.id)%>
