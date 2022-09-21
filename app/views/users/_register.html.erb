@@ -1,6 +1,18 @@
   <div class="col-md-3">
  <h2>User info</h2>
- <!--<p><%#= image_tag user.image %></p>-->
+ <% #if user.profile_image.attached? %>
+ <p><%#= image_tag user.profile_image size: "200x200"%></p>
+ <%#else%>
+ <%#= image_tag 'no_image', size: "200×200" %>
+ <%#end%>
+ <%#end%>
+ <% if @user.image.attached? %>
+  <%= image_tag @user.image, size: "100x100" %>
+<% else %>
+  <%= image_tag 'no_image', size: "100x100" %>
+<% end %>
+
+<%= link_to "Edit", edit_user_path(@user.id) %>
    <h4>name</h4>
   <%= user.name %>
    <h4>introduction</h4>
@@ -8,5 +20,5 @@
    </div>
 
 
-<tb><%= link_to "Edit", edit_user_path(user.id), class: 'fas fa-user-cog' %></tb>
+<tb><%= link_to "Edit", edit_user_path(user.id), class:'fas fa-user-cog' %></tb>
 

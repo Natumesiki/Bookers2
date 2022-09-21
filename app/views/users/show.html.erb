@@ -5,14 +5,16 @@
 
 <h1>User info</h1>
 <div class="profile-container">
-  <h3 class="profile-name"><%= @user.name %></h3>
- <%= image_tag @user.user.get_profile_image(100,100) %>
+  <h3 class="profile-name">
+    <%= @user.name %></h3>
+ <%#= image_tag @user.user.get_profile_image(100,100) %>
 
   <% if @user.id == current_user.id %>
 
  <P><%=link_to "プロフィール編集",edit_user_path(@user)%></P>
-<% end %>
+<%end%>
 </div>
 
 <!--ユーザーの投稿一覧-->
-<%= render 'user/list',user: @user %>
+<%# @user.each do |user| %>
+<%end%>
