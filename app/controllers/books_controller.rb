@@ -23,7 +23,6 @@ class BooksController < ApplicationController
       @book.user_id = current_user.id
       @book.save
      redirect_to "/books"
-
    end
 
  def destroy
@@ -43,6 +42,6 @@ class BooksController < ApplicationController
  private
 
   def book_params
-    params.require(:book).permit(:title,:body,:image)
+    params.require(:book).permit(:title,:body,:Profile_image)
   end
 end

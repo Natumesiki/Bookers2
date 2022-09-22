@@ -1,24 +1,23 @@
-  <div class="col-md-3">
+
  <h2>User info</h2>
- <% #if user.profile_image.attached? %>
- <p><%#= image_tag user.profile_image size: "200x200"%></p>
- <%#else%>
- <%#= image_tag 'no_image', size: "200×200" %>
- <%#end%>
- <%#end%>
- <% if @user.image.attached? %>
+ <table class='table'>
+
+ <% if @user.Profile_image.attached? %>
   <%= image_tag @user.image, size: "100x100" %>
 <% else %>
   <%= image_tag 'no_image', size: "100x100" %>
 <% end %>
 
-<%= link_to "Edit", edit_user_path(@user.id) %>
    <h4>name</h4>
   <%= user.name %>
    <h4>introduction</h4>
   <%= user.introduction %>
+  </table>
+  <div class='row'>
+  <%= link_to  edit_user_path(@user.id), class:"btn btn-outline-secondary btn-block" do %>
+  <i class="fas fa-user-cog"></i>
+  <%end%>
    </div>
 
 
-<tb><%= link_to "Edit", edit_user_path(user.id), class:'fas fa-user-cog' %></tb>
 
