@@ -28,8 +28,8 @@ class BooksController < ApplicationController
  def destroy
      @book = Book.find(params[:id])
      book = current_user
-     @book.delete
-     redirect_to book_path(book.id)
+     @book.destroy
+     redirect_to books_path
  end
 
    def update

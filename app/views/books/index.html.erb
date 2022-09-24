@@ -22,14 +22,14 @@
 <th colspan="3"></th>
  </tr>
  </thead>
-<tb><%= image_tag @user.get_profile_image(100,100) %></tb>
+<tb><%#= image_tag @user.get_profile_image(100,100) %></tb>
 <% @books.each do |book|%>
 <tbody>
  <tr>
 <div>
-  <%= link_to book_path(book.id) do %>
-    <%= image_tag book.get_image %>
-  <% end %>
+  <%#= link_to book_path(book.id) do %>
+    <%#= image_tag book.get_image %>
+  <%# end %>
 
   <td><%= book.title %></td>
   <td><%= book.body %></td>
@@ -38,7 +38,7 @@
 
    <td><%= link_to "Edit", edit_book_path(book.id) %></td>
 
-   <td><%= link_to "Destroy", book_path(book.id), method: :delete,"data-confirm" => "Are you sure?" %></td>
+   <td><%= link_to "Destroy", book_path(book.id), method: :destroy,"data-confirm" => "本当に削除しますか?" %></td>
 
  </tr>
 
