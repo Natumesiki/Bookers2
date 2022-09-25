@@ -5,16 +5,33 @@
 
 <h1>User info</h1>
 <div class="profile-container">
+
+<%= image_tag @user.get_profile_image(100,100) %>
+
   <h3 class="profile-name">
     <%= @user.name %></h3>
-  <%#= image_tag @user.user.get_profile_image(100,100) %>
 
+<h3><%= @user.introduction %></h3>
   <% if @user.id == current_user.id %>
 
  <P><%=link_to "プロフィール編集",edit_user_path(@user)%></P>
+
 <%end%>
 </div>
 
 <!--ユーザーの投稿一覧-->
-<%# @user.each do |user| %>
-<%#end%>
+<% @books.each do |book| %>
+<tr>
+ <%#= link_to book_path(book.id) do %>
+  <%#= image_tag book.get_image %>
+  <% #end %>
+  <%# if @user.profile_image.attached? %>
+  <%#= image_tag @user.profile_image, size: "100x100" %>
+<%# else %>
+  <%#= image_tag 'no_image', size: "100x100" %>
+<%# end %>
+<tb><%= image_tag book.user.get_profile_image(100,100) %></tb>
+<tb><%= book.title %></tb>
+<tb><%= book.body %></tb>
+<%end%>
+</tr>
