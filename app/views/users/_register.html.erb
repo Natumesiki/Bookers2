@@ -6,8 +6,8 @@
 
  <table class='table'>
 <tr>
- <% if @user.profile_image.attached? %>
-  <%= image_tag @user.profile_image, size: "100x100" %>
+ <% if user.profile_image.attached? %>
+  <%= image_tag user.profile_image, size: "100x100" %>
 <% else %>
   <%= image_tag 'no_image', size: "100x100" %>
 <% end %>
@@ -21,7 +21,7 @@
 
 
   <div class='row'>
-  <%= link_to  edit_user_path(@user.id), class:"btn btn-outline-secondary btn-block", method: :get  do %>
+  <%= link_to  edit_user_path(user.id), class:"btn btn-outline-secondary btn-block", method: :get  do %>
   <i class="fas fa-user-cog"></i>
   <%end%>
    </div>
