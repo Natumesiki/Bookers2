@@ -1,16 +1,33 @@
 <h1>Books#show</h1>
 <p>Find me in app/views/books/show.html.erb</p>
+
 <%= render 'users/register', user: @user%>
 
 <%= render 'books/new',book:@book %>
-
+</div>
+<div class="col-md-8 offset-md-1">
 <h1>Book detail</h1>
-<h4>タイトル</h4>
-<%= @book.title %>
+<table class="table table-hover table-inverse">
+ <tbody>
+ <tr>
+<td>
+ <%=link_to image_tag(@book.user.get_profile_image(100,100)) , user_path(@user.id) %></br>
 
-<h4>紹介内容</h4>
-<%= @book.body %></br>
+ <%=link_to (@user.name),user_path(@user.id) %>
+</td>
+<td><%=link_to @book.title, book_path(@book.id) %></td>
 
-<td><%= link_to "Edit", edit_book_path(@book.id) %></td>
-<td><%= link_to "Destroy",book_path, method: :delete,"data-confirm" => "本当に削除しますか?" %></td>
+<td><%= @book.body %></td></br>
 
+<% if @book.user_id == current_user.id %>
+<div class="form-group">
+<td><%= link_to "Edit", edit_book_path(@book.id),class:"btn btn-sm btn-success" %></td>
+</div>
+<div class="form-group">
+<td><%= link_to "Destroy",book_path , method: :delete ,"data-confirm" => "本当に削除しますか?" ,class:"btn btn-sm btn-danger"%></td>
+</div>
+</tr>
+</tbody>
+</table>
+ <%end%>
+</div>
