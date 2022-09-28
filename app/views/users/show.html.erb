@@ -2,17 +2,23 @@
 <h1>user showページ</h1>
 <%= render 'users/register', user: @user%>
 
- <%= render 'books/new',book:@book %>
-</div>
-<div class="col-md-8 offset-md-1">
-<h1> Books</h1>
-<table class="table table-hover table-inverse">
+ <%= render 'books/new',book: @book %>
 
+<div class="col-md-8 offset-md-1">
+<h2> Books</h2>
+<table class="table table-hover table-inverse">
+<thead>
+     <tr>
+       <th>Title</th>
+       <th>Opinion</th>
+       <th colspan="3"></th>
+     </tr>
+   </thead>
 <!--ユーザーの投稿一覧-->
 <% @books.each do |book| %>
 <tbody>
 <tr>
- <div>
+
  <%#= link_to book_path(book.id) do %>
   <%#= image_tag book.get_image %>
   <% #end %>
@@ -30,4 +36,3 @@
 </tbody>
 <%end%>
 </table>
-</div>

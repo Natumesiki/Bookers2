@@ -1,16 +1,21 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<h1>User Edit</h1>
+
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
 <h1>User info</h1>
 
 <%= form_with model: @user,url:user_path, method: :patch do |f| %>
- <label for="inputName">name</label></br>
-  <%= f.text_field :name, autofocus: true, id:"inputName",placeholder:"名前"%></br>
+ <div class="form-group">
+ <label for="inputName">Name</label></br>
+  <%= f.text_field :name, autofocus: true, maxlength:"20",id:"inputName",placeholder:"名前", class:"form-control name"%></br>
 
+ <div class="form-group">
  <label for="inputImage">ProfileImage</label></br>
- <%= f.file_field :profile_image,placeholder:"プロフィール画像", accept: "image/*" %></br>
+ <%= f.file_field :profile_image,placeholder:"プロフィール画像", accept: "image/*",class:"form-control-file user_image" %></br>
 
- <label for=>Introduction</label></br>
-  <%= f.text_area :introduction %></br>
+ <div class="form-group">
+ <label for="user_introduction">Introduction</label></br>
+  <%= f.text_area :introduction, maxlength:"50" ,class:"form-control introduction" %></br>
+
  <div class="form-group">
  <%= f.submit 'Update User', class:"btn btn-secondary"%>
  </div>

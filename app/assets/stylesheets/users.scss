@@ -5,6 +5,10 @@ tbody {
     display: table-row-group;
     vertical-align: middle;
     border-color: inherit;
+    border-top-color: inherit;
+    border-right-color: inherit;
+    border-bottom-color: inherit;
+    border-left-color: inherit;
 }
 tr {
     display: table-row;

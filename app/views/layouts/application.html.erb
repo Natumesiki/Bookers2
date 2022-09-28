@@ -24,7 +24,7 @@
       <ul class="navbar-nav ml-auto">
     <% if user_signed_in? %>
     <li>
-        <%= link_to root_path , class: 'nav-link text-light' do %>
+        <%= link_to new_user_session_path , class: 'nav-link text-light' do %>
         <i class="fas fa-home" aria-hidden="true"></i> Home
       <%end%>
       </li>
@@ -85,13 +85,15 @@
     <p id="notice"></p>
     <div class="container">
     <div class="row">
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0">
-   </div>
+    <!--<div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0">-->
+   <%= yield %>
+
 
     </div>
   </div>
 </div>
-    <%= yield %>
+
+
 </main>
   <footer>
   <div class="container mt-5">

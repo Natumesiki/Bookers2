@@ -9,14 +9,11 @@
 
  <%= render 'users/register', user: @user%>
 
- <%= render 'books/new',book:@book %>
-</div>
+ <%= render 'books/new',book: @book %>
 
-<div class ='col-md-8 offset-md-1'>
- <h2>Books</h2>
+<!--<div class='col-md-8 offset-md-1'>-->
 <table class='table table-hover table-inverse'>
  <thead>
-
  <tr>
   <th>Title</th>
   <th>Opinion</th>
@@ -24,33 +21,22 @@
  </tr>
  </thead>
 
-
+<h2>Books</h2>
 <% @books.each do |book|%>
 <tbody>
- <tr>
-<div>
+<tr>
   <%#= link_to book_path(book.id) do %>
     <%#= image_tag book.get_image %>
   <% #end %>
-<tb><th><%= image_tag book.user.get_profile_image(100,100) %></th>
-
-  <th><%= book.title %></th>
+<td>
+ <th><%= image_tag book.user.get_profile_image(100,100) %></th>
+</td>
+  <th><%=link_to (book.title),book_path(book.id) %></th>
   <th><%= book.body %></th>
 
-  <th><%= link_to "show", book_path(book.id) %></th>
-
-     <% if book.user_id == current_user.id %>
-
-  <th><%= link_to "Edit", edit_book_path(book.id) %></th>
-
-  <th><%= link_to "Destroy", book_path(book.id), method: :delete,"data-confirm" => "本当に削除しますか?" %></th></td>
-<%end%>
  </tr>
 
 </tbody>
 <%end%>
 </table>
- </div>
- </div>
- </div>
- </main>
+ 

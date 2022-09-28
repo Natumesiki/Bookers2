@@ -3,7 +3,7 @@
 
 <%= render 'users/register', user: @user%>
 
-<%= render 'books/new',book:@book %>
+<%= render 'books/new',book: @book_new %>
 </div>
 <div class="col-md-8 offset-md-1">
 <h1>Book detail</h1>
@@ -24,7 +24,7 @@
 <td><%= link_to "Edit", edit_book_path(@book.id),class:"btn btn-sm btn-success" %></td>
 </div>
 <div class="form-group">
-<td><%= link_to "Destroy",book_path , method: :delete ,"data-confirm" => "本当に削除しますか?" ,class:"btn btn-sm btn-danger"%></td>
+<td><%= link_to "Destroy",book_path , method: :delete ,"data-confirm" => "本当に消しますか?" ,class:"btn btn-sm btn-danger"%></td>
 </div>
 </tr>
 </tbody>
