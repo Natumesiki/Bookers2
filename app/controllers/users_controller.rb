@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-   before_action :authenticate_user!, only: [:show,:edit]
+   before_action :authenticate_user!, except: [:top,:about]
 
 
 def index
