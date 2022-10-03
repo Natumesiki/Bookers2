@@ -1,17 +1,21 @@
 <h1>User Edit</h1>
-
+ <div class='container'>
+  <div class='row'>
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
 <h1>User info</h1>
-
-<%#if @user.errors.any? %>
-　<%#= @user.errors.count %>件のエラーが発生しました
+<% if @user_up.errors.any? %>
+<h3><%= @user_up.errors.count %>error prohibited this obj from being saved:</h3>
 <ul>
-   <%# @user.errors.full_messages.each do |message| %>
-  <li><%#= message %></li>
-  <%#end%>
+   <% @user_up.errors.full_messages.each do |message| %>
+  <li><%= message %></li>
+<%end%>
  </ul>
-<%#send%>
-<%= form_with model: @user,url:user_path, method: :patch do |f| %>
+<%end%>
+
+
+<%#= form_with model: @user,url:user_path, method: :patch do |f| %>
+<%= form_with model: @user_up do |f| %>
+
  <div class="form-group">
  <label for="inputName">Name</label></br>
   <%= f.text_field :name, autofocus: true, maxlength:"20",id:"inputName",placeholder:"名前", class:"form-control name"%></br>

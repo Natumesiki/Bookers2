@@ -1,24 +1,36 @@
- <div class='container'>
+<div class='container'>
   <div class='row'>
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+
   <h1>Editing Book</h1>
-  <%= form_with model: @book, url:book_path(@book.id), method: :patch do |f| %>
+
+  <% if @book_up.errors.any? %>
+　<h3><%= @book_up.errors.count %>error prohibited this obj from being saved:</h3>
+<ul>
+   <% @book_up.errors.full_messages.each do |message| %>
+  <li><%= message %></li>
+<%end%>
+ </ul>
+<%end%>
+
+ <%#= form_with model: @book, url:book_path(@book.id), method: :patch do |f| %>
+ <%= form_with model: @book_up do |f| %>
   <div class="form-group">
   <label for="book_title">Title</label></br>
-      <%= f.text_field :title%>
+      <%= f.text_field :title,class:"form-control book_title"%>
     </div>
   <div class="form-group">
   <label for="book_opinion">Opinion</label></br>
-      <%= f.text_area :body %></br>
+      <%= f.text_area :body ,class:"form-control book_body"%></br>
    </div>
   <div class="form-group">
-    <%= f.submit '投稿' %>
+    <%= f.submit '投稿',class:"btn btn-success" %>
   </div>
   <% end %>
 
    <tr>
-   <td><%= link_to "show", book_path(@book.id) %></td>
+   <td><%= link_to "show", book_path(@book_up.id) %></td>
    |
-   <tb><%= link_to "Back", books_path(@book.id)%></tb>
+   <tb><%= link_to "Back", books_path(@book_up.id)%></tb>
  </div>
-</div>
+ </div>

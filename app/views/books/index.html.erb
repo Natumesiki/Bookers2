@@ -1,17 +1,21 @@
 <h1>Books#index</h1>
 <p>Find me in app/views/books/index.html.erb</p>
 
- <!--<main>-->
- <!--  <p id="notice"></p>-->
- <!--  <div class='container px-5 px-sm-0'>-->
- <!--   <div class='row'>-->
- <!--   <div class="col-md-3">-->
+<%if @book_cr.errors.any? %>
+　<h3><%= @book_cr.errors.count %>error prohibited this obj from being saved:</h3>
+<ul>
+   <% @book_cr.errors.full_messages.each do |message| %>
+  <li><%= message %></li>
+<%end%>
+ </ul>
+<%end%>
+
 
  <%= render 'users/register', user: @user %>
 
  <%= render 'books/new',book: @book %>
 
-<!--<div class='col-md-8 offset-md-1'>-->
+<div class='col-md-8 offset-md-1'>
 <table class='table table-hover table-inverse'>
  <thead>
  <tr>
