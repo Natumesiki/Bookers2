@@ -10,22 +10,21 @@ before_action :authenticate_user!, only:[:edit,:update,:destroy]
 
   def show
      @book = Book.find(params[:id])
-      @user  = @book.user
-     @book_new = Book.new
-     # @book_up =  Book.find(params[:id])
-      # @book.user_id = current_user.id
+       @user = @book.user
+       # @book = current_user.id
+      @book_new = Book.new
   end
 
   def edit
-      @book_cr = Book.new
+      @book = Book.new
        @book = current_user.id
       @book_up = Book.find(params[:id])
   end
 
    def create
-     @book_cr = Book.new(book_params)
-       @book = current_user.id
-      if @book_cr.save
+     @book = Book.new(book_params)
+       @book.user_id = current_user.id
+      if @book.save
      redirect_to book_path(@book.id), notice: "You have created book successfully."
    else
     render :index

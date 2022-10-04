@@ -4,14 +4,7 @@
 
   <h1>Editing Book</h1>
 
-  <% if @book_up.errors.any? %>
-　<h3><%= @book_up.errors.count %>error prohibited this obj from being saved:</h3>
-<ul>
-   <% @book_up.errors.full_messages.each do |message| %>
-  <li><%= message %></li>
-<%end%>
- </ul>
-<%end%>
+ <%= render "devise/shared/error_messages", resource: @book_up %>
 
  <%#= form_with model: @book, url:book_path(@book.id), method: :patch do |f| %>
  <%= form_with model: @book_up do |f| %>
