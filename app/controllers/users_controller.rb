@@ -1,10 +1,11 @@
 class UsersController < ApplicationController
 before_action :authenticate_user!, only:[:edit,:update]
-before_action :ensure_correct_user, only:[:edit]
+
 
 def index
  @users = User.all
- @user = current_user
+  @user = current_user
+ @book = Book.new
 end
 
  def show
@@ -17,14 +18,18 @@ end
   def edit
      @user = current_user
      @user_up = User.find(params[:id])
+    if @user_up == current_user
+       render "edit"
+     else
+      redirect_to users_path
   end
-
+end
 
    def create
     @user = User.new(user_params)
     @user.user = current_user
     if @user.save
-    redirect_to user_path
+    redirect_to user_path(user.id)
    else
     render :show
   end
@@ -48,9 +53,4 @@ end
   end
 end
 
-    def ensure_correct_user
-        user = User.find(params[:id])
-         unless user == current_user
-        redirect_to user_path(current_user.id)
-     end
-   end
+
