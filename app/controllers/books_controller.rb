@@ -5,8 +5,7 @@ before_action :authenticate_user!, only:[:edit,:update,:destroy]
   def index
     @book = Book.new
     @book_all = Book.all
-     @user = current_user
-
+      @user = current_user
   end
 
   def show

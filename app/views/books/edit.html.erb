@@ -17,12 +17,12 @@
       <%= f.text_area :body ,class:"form-control book_body"%></br>
    </div>
   <div class="form-group">
-    <%= f.submit '投稿',class:"btn btn-success" %>
+    <%= f.submit 'Update Book',class:"btn btn-success" %>
   </div>
   <% end %>
 
    <tr>
-   <td><%= link_to "show", book_path(@book_up.id) %></td>
+   <td><%= link_to "Show", book_path(@book_up.id) %></td>
    |
    <tb><%= link_to "Back", books_path(@book_up.id)%></tb>
  </div>
