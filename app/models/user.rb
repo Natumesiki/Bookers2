@@ -11,7 +11,7 @@ class User < ApplicationRecord
   validates :name, length: {maximum: 20 }
   validates :name, uniqueness: {sccpe: :user }
 
-  validates :introduction, length: {minimum:1,maximum: 50 },allow_blank:true, on: :update
+  validates :introduction, length: {maximum: 50 },allow_blank:true, on: :update
   # validates :profile_image, allow_blank, on: :update
 
 
