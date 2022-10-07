@@ -5,7 +5,8 @@ before_action :authenticate_user!, only:[:edit,:update,:destroy]
   def index
     @book = Book.new
     @book_all = Book.all
-      @user = current_user
+      @user = User.find(current_user.id)
+    #   @users = User.all
   end
 
   def show
