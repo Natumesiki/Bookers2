@@ -30,10 +30,10 @@ end
     @user.user = current_user
     if @user.save
     redirect_to user_path(user.id)
-   else
+    else
     render :show
-  end
- end
+    end
+   end
 
    def update
     @user_up = User.find(params[:id])
@@ -41,10 +41,10 @@ end
      user = current_user
     if  @user_up.save
     redirect_to user_path(user.id), notice: "You have updated user successfully."
-  else
+    else
    render :edit
-  end
- end
+    end
+   end
 
 
   private
