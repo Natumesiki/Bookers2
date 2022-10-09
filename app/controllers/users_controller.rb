@@ -21,7 +21,7 @@ end
     if @user_up == current_user
        render "edit"
     else
-      redirect_to users_path
+      redirect_to user_path(@user.id)
     end
   end
 
