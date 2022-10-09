@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-before_action :authenticate_user!, only:[:edit,:update,:destroy]
+before_action :authenticate_user!
 
 
   def index
@@ -49,11 +49,11 @@ before_action :authenticate_user!, only:[:edit,:update,:destroy]
       @book_up.update(book_params)
        @book = current_user.id
      if @book_up.save
-    redirect_to book_path(@book_up.id), notice: "You have updated book successfully."
-  else
-    render :edit
+       redirect_to book_path(@book_up.id), notice: "You have updated book successfully."
+     else
+       render :edit
+     end
    end
-  end
 
  private
 
@@ -61,6 +61,7 @@ before_action :authenticate_user!, only:[:edit,:update,:destroy]
     params.require(:book).permit(:title,:body,:user_id)
   end
 end
+
 
 
 
