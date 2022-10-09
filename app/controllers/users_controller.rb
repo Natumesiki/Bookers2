@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 before_action :authenticate_user!
-
+# before_action :correct_user, only: [:edit,:update]
 
 def index
  @users = User.all
@@ -16,7 +16,7 @@ end
 
 
   def edit
-    @user = current_user
+     @user = current_user
      @user_up = User.find(params[:id])
     if @user_up == current_user
        render "edit"
@@ -46,6 +46,7 @@ end
   end
  end
 
+
   private
 
   def user_params
@@ -53,4 +54,12 @@ end
   end
 end
 
+# def correct_user
+#  user = User.find(params[:id])
+#  if current_user != user
+#   redirect_to user_path
+#  else
+#   render :show
+#  end
+# end
 
